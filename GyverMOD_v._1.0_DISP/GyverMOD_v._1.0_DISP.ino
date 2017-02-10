@@ -13,7 +13,9 @@
    Если хотите пропустить процесс калибровки, то введите то же самое напряжение,
    что было показано вам при калибровке (real VCC). И снова прошейте код.
 */
-#define initial_calibration 0 // 1 - включить, 0 - выключить
+#define initial_calibration 1 // калибровка вольтметра 1 - включить, 0 - выключить
+#define welcome 1 // приветствие (слова GYVER VAPE при включении), 1 - включить, 0 - выключить
+#define battery_info 1 // отображение напряжения аккумулятора при запуске, 1 - включить, 0 - выключить
 
 #include <EEPROMex.h>   // библиотека для работы со внутренней памятью ардуино
 //-----------кнопки-----------
@@ -96,48 +98,37 @@ void setup() {
   pinMode(mosfet , OUTPUT);
   //---настройка кнопок и выходов-----
 
+  //------приветствие-----
+  if (welcome) {
+    disp_send(GYVE);
+    delay(400);
+    disp_send(YVEA);
+    delay(400);
+    disp_send(VAPE);
+    delay(400);
+  }
+  //------приветствие-----
+
   // измерить напряжение аккумулятора
   bat_vol = analogRead(battery) * readVcc() / 1024;
   bat_old = bat_vol;
 
-  if (bat_vol < 1000 && bat_vol > 300 && !initial_calibration) { // если акум заряжается
-    while (1) {                                                  // уйти в бесконечный цикл
-      disp_send(CHG1);
-      delay(400);
-      disp_send(CHG2);
-      delay(400);
-      disp_send(CHG3);
-      delay(400);
-      // и фигачить анимацию зарядки
-    }
-  }
-
-  //------приветствие-----
-  disp_send(GYVE);
-  delay(400);
-  disp_send(YVEA);
-  delay(400);
-  disp_send(VAPE);
-  delay(400);
-  //------приветствие-----
-
-
   // проверка заряда акума, если разряжен то прекратить работу
   if (bat_vol < 2800) {
     flag = 0;
-    Serial.print("ERROR. Battery exhausted ");
-    Serial.println((float)bat_vol / 1000, 2);
+    disp_send(LOWB);
+    while (1); // перейти в бесконечный цикл (поможет только перезагрузка)
   } else {
-  flag = 1;
-  Serial.print("OK. Battery charged ");
-    Serial.println((float)bat_vol / 1000, 2);
+    flag = 1;
   }
 
-  disp_send(BVOL);
-  delay(500);
-  disp.float_dot((float)bat_vol / 1000, 2);
-  delay(1000);
-  disp.clear();
+  if (battery_info) {
+    disp_send(BVOL);
+    delay(500);
+    disp.float_dot((float)bat_vol / 1000, 2);
+    delay(1000);
+    disp.clear();
+  }
 }
 
 void loop() {
@@ -147,6 +138,8 @@ void loop() {
     bat_old = bat_volt_f;                                // фильтруем
     if (bat_volt_f < 2800) {                             // если напряжение меньше минимального
       flag = 0;                                          // прекратить работу
+      disp_send(LOWB);
+      while (1); // перейти в бесконечный цикл (поможет только перезагрузка)
     }
   }
 
@@ -402,6 +395,7 @@ void calibration() {
   float real_const = (float)1.1 * Vcc / readVcc();              // расчёт константы
   Serial.print("New voltage constant: "); Serial.println(real_const, 3);
   EEPROM.writeFloat(8, real_const);                             // запись в EEPROM
+  while(1); // уйти в бесконечный цикл
   //------конец калибровки-------
 }
 
