@@ -6,6 +6,8 @@
   
 **GyverMOD_v._1.0_DISP** - прошивка для Ардуино, версия с варивольтом
 
+**images** - рендеры 3D модели, компоновка
+
 ### Схема подключения, версия 1.0
 ![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/scheme_1.0.jpg)
 
@@ -13,6 +15,9 @@
 ![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/images/comp1.jpg)
 
 ## Нужная инфа
+### Страница проекта на моём сайте
+http://AlexGyver.ru/gyvermod/
+
 ### Настройки в прошивке (1 - вкл, 0 - выкл): 
 * initial_calibration - калибровка вольтметра
 * welcome - приветствие (слова GYVER VAPE при включении)
