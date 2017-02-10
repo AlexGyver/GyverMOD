@@ -24,23 +24,16 @@
 * Корпус http://ali.pub/zu6eo
 * Макетка http://ali.pub/65yz0
 * Дисплей http://ali.pub/6wbzj
-
-Кнопки длинные 
-* 50 шт. http://ali.pub/uszk0
-* 1 шт. https://www.chipdip.ru/product/tyco-2-1825910-7-fsm14jh
-
-Кнопка большая 
-* 20 шт. http://ali.pub/nf1y7
-* 1 шт. https://www.chipdip.ru/product/tyco-1437565-5-fsm103
-* Колпачок https://www.chipdip.ru/product/swt-9r-r
-
-* Стильная кнопка http://ali.pub/7wc9d
-* https://www.chipdip.ru/product/pbs26c
-
 * Ардуино Нано http://ali.pub/j570s
 * Холдер х2 http://ali.pub/wrlsu
 * Повыш. модуль http://ali.pub/klcgw
 * Зарядник http://ali.pub/ane0z
+* Провод толстый http://ali.pub/oy671
+* Акумы SONY VTС4 http://ali.pub/b64sy
+* Другие акумы http://alexgyver.ru/vapes/
+* 510 коннектор http://ali.pub/03sfx
+* Атомайзер http://ali.pub/0cvro
+* Другие атомайзеры http://alexgyver.ru/vapes/
 
 Выключатель
 * 5 шт. http://ali.pub/m3y6r
@@ -58,15 +51,20 @@
 * Больошй набор http://ali.pub/odr8u
 * 1 шт. https://www.chipdip.ru/product0/47324
 
-* Провод толстый http://ali.pub/oy671
+Кнопки длинные 
+* 50 шт. http://ali.pub/uszk0
+* 1 шт. https://www.chipdip.ru/product/tyco-2-1825910-7-fsm14jh
 
-* Акумы SONY VTС4 http://ali.pub/b64sy
-* Другие акумы http://alexgyver.ru/vapes/
+Кнопка большая 
+* 20 шт. http://ali.pub/nf1y7
+* 1 шт. https://www.chipdip.ru/product/tyco-1437565-5-fsm103
+* Колпачок https://www.chipdip.ru/product/swt-9r-r
 
-* 510 коннектор http://ali.pub/03sfx
-* Атомайзер http://ali.pub/0cvro
-* Другие атомайзеры http://alexgyver.ru/vapes/
+Стильная кнопка
+* Тыц http://ali.pub/7wc9d
+* Тыц https://www.chipdip.ru/product/pbs26c
 
+Полезное
 * Кнопки, электроника, корпуса http://alexgyver.ru/electronics/
 * Припой, паяльники http://alexgyver.ru/all-for-soldering/
 
