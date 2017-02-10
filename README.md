@@ -1,19 +1,16 @@
-# Радиоуправляемая ракетная турель с FPV
+# Вейп БоксМод GyverMOD
 
 ## Папки
 
-**RF24-master** - библиотека для модуля связи, установить в C:\Program Files\Arduino\libraries
+**TM74HC595-disp-upd** - библиотека для дисплея, установить в C:\Program Files\Arduino\libraries
   
-**Скетч** - прошивка для Ардуино
-  
-- **RX** - скетч ПРИЁМНИКА (receiver)
-- **TX** - скетч ПЕРЕДАТЧИКА (transmitter)
+**GyverMOD_v._1.0_DISP** - прошивка для Ардуино, версия с варивольтом
 
+## Схема подключения, версия 1.0
+![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/GyverMOD_v._1.0_DISP/scheme_1.0.jpg)
 
-## Схема подключения
-![ПЕРЕДАТЧИК](https://github.com/AlexGyver/RC_Turrel/blob/master/%D0%A1%D1%85%D0%B5%D0%BC%D1%8B/TX_bb.png)
-
-![ПРИЁМНИК](https://github.com/AlexGyver/RC_Turrel/blob/master/%D0%A1%D1%85%D0%B5%D0%BC%D1%8B/RX_bb.png)
+## Компоновка, версия 1.0
+![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/GyverMOD_v._1.0_DISP/comp1.jpg)
 
 ## Видео по теме
 Самодельный 10 канальный радиопульт:
