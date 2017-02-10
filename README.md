@@ -16,13 +16,10 @@
 Статья первые шаги с Arduino
 ► http://alexgyver.ru/arduino-first/
 
-* ► https://youtu.be/5_aj6sMGQtM
-
-
 ##  Материалы и компоненты
 Почти всё указанное ниже можно найти здесь:
-Страница с вейпами http://alexgyver.ru/vapes/
-Ардуино и электроника http://alexgyver.ru/arduino_shop/
+- Страница с вейпами http://alexgyver.ru/vapes/
+- Ардуино и электроника http://alexgyver.ru/arduino_shop/
 
 * Корпус http://ali.pub/zu6eo
 * Макетка http://ali.pub/65yz0
