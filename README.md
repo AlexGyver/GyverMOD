@@ -7,15 +7,15 @@
 **GyverMOD_v._1.0_DISP** - прошивка для Ардуино, версия с варивольтом
 
 ### Схема подключения, версия 1.0
-![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/GyverMOD_v._1.0_DISP/scheme_1.0.jpg)
+![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/scheme_1.0.jpg)
 
 ### Компоновка, версия 1.0
-![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/GyverMOD_v._1.0_DISP/comp1.jpg)
+![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/images/comp1.jpg)
 
 ## Нужная инфа
 ### Настройки в прошивке (1 - вкл, 0 - выкл): 
 * initial_calibration - калибровка вольтметра
-* welcome 1 - приветствие (слова GYVER VAPE при включении)
+* welcome - приветствие (слова GYVER VAPE при включении)
 * battery_info - отображение напряжения аккумулятора при запуске
 
 ###Статья первые шаги с Arduino
@@ -26,6 +26,7 @@
 - Страница с вейпами http://alexgyver.ru/vapes/
 - Ардуино и электроника http://alexgyver.ru/arduino_shop/
 
+Понеслась
 * Корпус http://ali.pub/zu6eo
 * Макетка http://ali.pub/65yz0
 * Дисплей http://ali.pub/6wbzj
