@@ -41,7 +41,7 @@ http://AlexGyver.ru/gyvermod/
 * Ардуино Нано http://ali.pub/j570s
 * Холдер х2 http://ali.pub/wrlsu
 * Повыш. модуль http://ali.pub/klcgw
-* Зарядник http://ali.pub/ane0z
+* Зарядник http://ali.pub/rgfop
 * Провод толстый http://ali.pub/oy671
 * Акумы SONY VTС4 http://ali.pub/b64sy
 * Другие акумы http://alexgyver.ru/vapes/
