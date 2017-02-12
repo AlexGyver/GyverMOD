@@ -52,6 +52,7 @@ http://AlexGyver.ru/gyvermod/
 
 Мосфет
 * 10 шт. http://ali.pub/xrfga
+* 1 шт. мощный http://ali.pub/2alrv
 * 1 шт. https://www.chipdip.ru/product/irf3205
 
 Резисторы 10 кОм
