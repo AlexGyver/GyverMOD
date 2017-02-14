@@ -54,9 +54,9 @@ http://AlexGyver.ru/gyvermod/
 * 1 шт. https://www.chipdip.ru/product/smrs-102-1c2
 
 Мосфет
-* 10 шт. http://ali.pub/xrfga
-* 1 шт. мощный http://ali.pub/2alrv
-* 1 шт. https://www.chipdip.ru/product/irf3205
+Мосфет 
+5 шт. Мощный http://ali.pub/2alrv
+1 шт. https://www.chipdip.ru/product/irlb3034pbf
 
 Резисторы 10 кОм
 * Больошй набор http://ali.pub/odr8u
