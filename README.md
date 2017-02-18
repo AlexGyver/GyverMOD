@@ -15,13 +15,13 @@
 ![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/scheme_1.0.jpg)
 
 ### Компоновка, версия 1.0
-![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/images/comp1.jpg)
+![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/images/GM%201.0/comp1.jpg)
 
 ### Схема подключения, версия 1.2
 ![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/scheme_1.2.jpg)
 
 ### Компоновка, версия 1.2
-![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/images/comp3.jpg)
+![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/images/GM%201.2/comp3.jpg)
 
 ## Нужная инфа
 ### Страница проекта на моём сайте
