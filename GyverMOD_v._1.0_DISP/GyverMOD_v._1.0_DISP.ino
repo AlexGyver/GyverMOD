@@ -110,7 +110,7 @@ void setup() {
   //------приветствие-----
 
   // измерить напряжение аккумулятора
-  bat_vol = analogRead(battery) * readVcc() / 1024;
+  bat_vol = analogRead(battery) * readVcc() / 1023;
   bat_old = bat_vol;
 
   // проверка заряда акума, если разряжен то прекратить работу
@@ -133,7 +133,7 @@ void setup() {
 
 void loop() {
   if (millis() - last_time > 50) {                       // 20 раз в секунду измеряем напряжение
-    bat_vol = analogRead(battery) * readVcc() / 1024;    // измерить напряжение аккумулятора в миллиВольтах
+    bat_vol = analogRead(battery) * readVcc() / 1023;    // измерить напряжение аккумулятора в миллиВольтах
     bat_volt_f = filter_k * bat_vol + (1 - filter_k) * bat_old;  // фильтруем
     bat_old = bat_volt_f;                                // фильтруем
     if (bat_volt_f < 2800) {                             // если напряжение меньше минимального
