@@ -180,245 +180,241 @@ void loop() {
   // использовать для проерки правильности подключения
 
   //---------------------отработка нажатия SET и изменение режимов---------------------
-  if (set_state && !set_hold) {          // если кнпока нажата
-    set_hold = 1;
-    set_press = millis();                // начинаем отсчёт
-    while (millis() - set_press < 300) {
-      if (digitalRead(butt_set)) {       // если кнопка отпущена до 300 мс
-        set_hold = 0;
-        set_flag = 1;
-        break;
+  if (flag) {                              // если акум заряжен
+    if (set_state && !set_hold) {          // если кнпока нажата
+      set_hold = 1;
+      set_press = millis();                // начинаем отсчёт
+      while (millis() - set_press < 300) {
+        if (digitalRead(butt_set)) {       // если кнопка отпущена до 300 мс
+          set_hold = 0;
+          set_flag = 1;
+          break;
+        }
       }
     }
-  }
-  if (set_hold && set_state) {           // если кнопка всё ещё удерживается
-    if (!set_flag_hold) {
-      disp.clear();
-      set_flag_hold = 1;
-    }
-    if (round(millis() / 150) % 2 == 0) {
-      if (!battery_percent) {
-        disp.float_dot((float)bat_volt_f / 1000, 2); // показать заряд акума в вольтах
-      } else {
-        disp.digit4(map(bat_volt_f, battery_low * 1000, 4200, 0, 99)); // показать заряд акума в процентах
+    if (set_hold && set_state) {           // если кнопка всё ещё удерживается
+      if (!set_flag_hold) {
+        disp.clear();
+        set_flag_hold = 1;
+      }
+      if (round(millis() / 150) % 2 == 0) {
+        if (!battery_percent) {
+          disp.float_dot((float)bat_volt_f / 1000, 2); // показать заряд акума в вольтах
+        } else {
+          disp.digit4(map(bat_volt_f, battery_low * 1000, 4200, 0, 99)); // показать заряд акума в процентах
+        }
       }
     }
-  }
-  if (set_hold && !set_state && set_flag_hold) {  // если удерживалась и была отпущена
-    set_hold = 0;
-    set_flag_hold = 0;
-    mode_flag = 1;
-  }
-
-  if (!set_state && set_flag) {  // если нажали-отпустили
-    set_hold = 0;
-    set_flag = 0;
-    mode++;                      // сменить режим
-    mode_flag = 1;
-    if (mode > 2) mode = 0;      // ограничение на 3 режима
-  }
-  // ----------------------отработка нажатия SET и изменение режимов---------------------------
-
-  // ------------------режим ВАРИВОЛЬТ-------------------
-  if (mode == 0 && !vape_state && !set_hold) {
-    if (mode_flag) {                     // приветствие
-      mode_flag = 0;
-      disp_send(VVOL);
-      delay(400);
-      disp.clear();
-      disp.float_dot((float)volts / 1000, 2); // отобразить на дисплее      
+    if (set_hold && !set_state && set_flag_hold) {  // если удерживалась и была отпущена
+      set_hold = 0;
+      set_flag_hold = 0;
+      mode_flag = 1;
     }
-    //---------кнопка ВВЕРХ--------
-    if (up_state && !up_flag) {
-      volts += 100;
-      volts = min(volts, bat_volt_f);  // ограничение сверху на текущий заряд акума
-      up_flag = 1;
-      disp.clear();
+
+    if (!set_state && set_flag) {  // если нажали-отпустили
+      set_hold = 0;
+      set_flag = 0;
+      mode++;                      // сменить режим
+      mode_flag = 1;
+      if (mode > 2) mode = 0;      // ограничение на 3 режима
+    }
+    // ----------------------отработка нажатия SET и изменение режимов---------------------------
+
+    // ------------------режим ВАРИВОЛЬТ-------------------
+    if (mode == 0 && !vape_state && !set_hold) {
+      if (mode_flag) {                     // приветствие
+        mode_flag = 0;
+        disp_send(VVOL);
+        delay(400);
+        disp.clear();        
+      }
+      //---------кнопка ВВЕРХ--------
+      if (up_state && !up_flag) {
+        volts += 100;
+        volts = min(volts, bat_volt_f);  // ограничение сверху на текущий заряд акума
+        up_flag = 1;
+        disp.clear();        
+      }
+      if (!up_state && up_flag) {
+        up_flag = 0;
+        change_v_flag = 1;
+      }
+      //---------кнопка ВВЕРХ--------
+
+      //---------кнопка ВНИЗ--------
+      if (down_state && !down_flag) {
+        volts -= 100;
+        volts = max(volts, 0);
+        down_flag = 1;
+        disp.clear();        
+      }
+      if (!down_state && down_flag) {
+        down_flag = 0;
+        change_v_flag = 1;
+      }
+      //---------кнопка ВНИЗ--------
       disp.float_dot((float)volts / 1000, 2); // отобразить на дисплее
     }
-    if (!up_state && up_flag) {
-      up_flag = 0;
-      change_v_flag = 1;
-    }
-    //---------кнопка ВВЕРХ--------
-
-    //---------кнопка ВНИЗ--------
-    if (down_state && !down_flag) {
-      volts -= 100;
-      volts = max(volts, 0);
-      down_flag = 1;
-      disp.clear();
-      disp.float_dot((float)volts / 1000, 2); // отобразить на дисплее
-    }
-    if (!down_state && down_flag) {
-      down_flag = 0;
-      change_v_flag = 1;
-    }
-    //---------кнопка ВНИЗ--------    
-  }
-  // ------------------режим ВАРИВОЛЬТ-------------------
+    // ------------------режим ВАРИВОЛЬТ-------------------
 
 
-  // ------------------режим ВАРИВАТТ-------------------
-  if (mode == 1 && !vape_state && !set_hold) {
-    if (mode_flag) {                     // приветствие
-      mode_flag = 0;
-      disp_send(VAVA);
-      delay(400);
-      disp.clear();
+    // ------------------режим ВАРИВАТТ-------------------
+    if (mode == 1 && !vape_state && !set_hold) {
+      if (mode_flag) {                     // приветствие
+        mode_flag = 0;
+        disp_send(VAVA);
+        delay(400);
+        disp.clear();        
+      }
+      //---------кнопка ВВЕРХ--------
+      if (up_state && !up_flag) {
+        watts += 1;
+        byte maxW = (sq((float)bat_volt_f / 1000)) / ohms;
+        watts = min(watts, maxW);               // ограничение сверху на текущий заряд акума и сопротивление
+        up_flag = 1;
+        disp.clear();        
+      }
+      if (!up_state && up_flag) {
+        up_flag = 0;
+        change_w_flag = 1;
+      }
+      //---------кнопка ВВЕРХ--------
+
+      //---------кнопка ВНИЗ--------
+      if (down_state && !down_flag) {
+        watts -= 1;
+        watts = max(watts, 0);
+        down_flag = 1;
+        disp.clear();        
+      }
+      if (!down_state && down_flag) {
+        down_flag = 0;
+        change_w_flag = 1;
+      }
+      //---------кнопка ВНИЗ--------
       disp.digit4(watts);        // отобразить на дисплее
     }
-    //---------кнопка ВВЕРХ--------
-    if (up_state && !up_flag) {
-      watts += 1;
-      byte maxW = (sq((float)bat_volt_f / 1000)) / ohms;
-      watts = min(watts, maxW);               // ограничение сверху на текущий заряд акума и сопротивление
-      up_flag = 1;
-      disp.clear();
-      disp.digit4(watts);        // отобразить на дисплее
-    }
-    if (!up_state && up_flag) {
-      up_flag = 0;
-      change_w_flag = 1;
-    }
-    //---------кнопка ВВЕРХ--------
+    // ------------------режим ВАРИВАТТ--------------
 
-    //---------кнопка ВНИЗ--------
-    if (down_state && !down_flag) {
-      watts -= 1;
-      watts = max(watts, 0);
-      down_flag = 1;
-      disp.clear();
-      disp.digit4(watts);        // отобразить на дисплее
-    }
-    if (!down_state && down_flag) {
-      down_flag = 0;
-      change_w_flag = 1;
-    }
-    //---------кнопка ВНИЗ--------    
-  }
-  // ------------------режим ВАРИВАТТ--------------
+    // ----------режим установки сопротивления-----------
+    if (mode == 2 && !vape_state && !set_hold) {
+      if (mode_flag) {                     // приветствие
+        mode_flag = 0;
+        disp_send(COIL);
+        delay(400);
+        disp.clear();        
+      }
+      //---------кнопка ВВЕРХ--------
+      if (up_state && !up_flag) {
+        ohms += 0.05;
+        ohms = min(ohms, 3);
+        up_flag = 1;
+        disp.clear();        
+      }
+      if (!up_state && up_flag) {
+        up_flag = 0;
+        change_o_flag = 1;
+      }
+      //---------кнопка ВВЕРХ--------
 
-  // ----------режим установки сопротивления-----------
-  if (mode == 2 && !vape_state && !set_hold) {
-    if (mode_flag) {                     // приветствие
-      mode_flag = 0;
-      disp_send(COIL);
-      delay(400);
-      disp.clear();
+      //---------кнопка ВНИЗ--------
+      if (down_state && !down_flag) {
+        ohms -= 0.05;
+        ohms = max(ohms, 0);
+        down_flag = 1;
+        disp.clear();        
+      }
+      if (!down_state && down_flag) {
+        down_flag = 0;
+        change_o_flag = 1;
+      }
+      //---------кнопка ВНИЗ--------
       disp.float_dot(ohms, 2);        // отобразить на дисплее
     }
-    //---------кнопка ВВЕРХ--------
-    if (up_state && !up_flag) {
-      ohms += 0.05;
-      ohms = min(ohms, 3);
-      up_flag = 1;
-      disp.clear();
-      disp.float_dot(ohms, 2);        // отобразить на дисплее
-    }
-    if (!up_state && up_flag) {
-      up_flag = 0;
-      change_o_flag = 1;
-    }
-    //---------кнопка ВВЕРХ--------
+    // ----------режим установки сопротивления-----------
 
-    //---------кнопка ВНИЗ--------
-    if (down_state && !down_flag) {
-      ohms -= 0.05;
-      ohms = max(ohms, 0);
-      down_flag = 1;
-      disp.clear();
-      disp.float_dot(ohms, 2);        // отобразить на дисплее
+    //---------отработка нажатия кнопки парения-----------
+    if (vape_state && flag && !wake_up_flag) {
+
+      if (!vape_flag) {
+        vape_flag = 1;
+        vape_mode = 1;            // первичное нажатие
+        vape_press = millis();    // первичное нажатие
+      }
+
+      if (vape_release_count == 1) vape_mode = 2;  // двойное нажатие
+      if (vape_release_count == 2) vape_mode = 3;  // тройное нажатие
+
+      if (millis() - vape_press > vape_threshold * 1000) {  // "таймер затяжки"
+        vape_mode = 0;
+        digitalWrite(mosfet, 0);
+      }
+
+      if (vape_mode == 1) {                                           // обычный режим парения
+        if (round(millis() / 150) % 2 == 0)
+          disp_send(vape1); else disp_send(vape2);                    // мигать медленно
+        if (mode == 0) {                                              // если ВАРИВОЛЬТ
+          PWM = (float)volts / bat_volt_f * 1024;                     // считаем значение для ШИМ сигнала
+          if (PWM > 1023) PWM = 1023;                                 // ограничил PWM "по тупому", потому что constrain сука не работает!
+          PWM_f = PWM_filter_k * PWM + (1 - PWM_filter_k) * PWM_old;  // фильтруем
+          PWM_old = PWM_f;                                            // фильтруем
+        }
+        Timer1.pwm(mosfet, PWM_f);                                    // управление мосфетом
+      }
+      if (vape_mode == 2 && turbo_mode) {                             // турбо режим парения (если включен)
+        if (round(millis() / 50) % 2 == 0)
+          disp_send(vape1); else disp_send(vape2);                    // мигать быстро
+        digitalWrite(mosfet, 1);                                      // херачить на полную мощность
+      }
+      if (vape_mode == 3) {                                           // тройное нажатие
+        vape_release_count = 0;
+        vape_mode = 1;
+        vape_flag = 0;
+        good_night();    // вызвать функцию сна
+      }
+      vape_btt = 1;
     }
-    if (!down_state && down_flag) {
-      down_flag = 0;
-      change_o_flag = 1;
-    }
-    //---------кнопка ВНИЗ--------    
-  }
-  // ----------режим установки сопротивления-----------
 
-  //---------отработка нажатия кнопки парения-----------
-  if (vape_state && flag && !wake_up_flag) {
+    if (!vape_state && vape_btt) {  // если кнопка ПАРИТЬ отпущена
+      if (millis() - vape_press > 180) {
+        vape_release_count = 0;
+        vape_mode = 0;
+        vape_flag = 0;
+      }
+      vape_btt = 0;
+      if (vape_mode == 1) {
+        vape_release_count = 1;
+        vape_press = millis();
+      }
+      if (vape_mode == 2) vape_release_count = 2;
 
-    if (!vape_flag) {
-      vape_flag = 1;
-      vape_mode = 1;            // первичное нажатие
-      vape_press = millis();    // первичное нажатие
-    }
-
-    if (vape_release_count == 1) vape_mode = 2;  // двойное нажатие
-    if (vape_release_count == 2) vape_mode = 3;  // тройное нажатие
-
-    if (millis() - vape_press > vape_threshold * 1000) {  // "таймер затяжки"
-      vape_mode = 0;
       digitalWrite(mosfet, 0);
-    }
+      disp.clear();
+      mode_flag = 0;
 
-    if (vape_mode == 1) {                                           // обычный режим парения
-      if (round(millis() / 150) % 2 == 0)
-        disp_send(vape1); else disp_send(vape2);                    // мигать медленно
-      if (mode == 0) {                                              // если ВАРИВОЛЬТ
-        PWM = (float)volts / bat_volt_f * 1024;                     // считаем значение для ШИМ сигнала
-        if (PWM > 1023) PWM = 1023;                                 // ограничил PWM "по тупому", потому что constrain сука не работает!
-        PWM_f = PWM_filter_k * PWM + (1 - PWM_filter_k) * PWM_old;  // фильтруем
-        PWM_old = PWM_f;                                            // фильтруем
+      // если есть изменения в настройках, записать в память
+      if (change_v_flag) {
+        EEPROM.writeInt(0, volts);
+        change_v_flag = 0;
       }
-      Timer1.pwm(mosfet, PWM_f);                                    // управление мосфетом
+      if (change_w_flag) {
+        EEPROM.writeInt(2, watts);
+        change_w_flag = 0;
+      }
+      if (change_o_flag) {
+        EEPROM.writeFloat(4, ohms);
+        change_o_flag = 0;
+      }
+      // если есть изменения в настройках, записать в память
     }
-    if (vape_mode == 2 && turbo_mode) {                             // турбо режим парения (если включен)
-      if (round(millis() / 50) % 2 == 0)
-        disp_send(vape1); else disp_send(vape2);                    // мигать быстро
-      digitalWrite(mosfet, 1);                                      // херачить на полную мощность
+    if (vape_state && !flag) { // если акум сел, а мы хотим подымить
+      disp.clear();
+      disp_send(LOWB);
+      delay(1000);
+      vape_flag = 1;
     }
-    if (vape_mode == 3) {                                           // тройное нажатие
-      vape_release_count = 0;
-      vape_mode = 1;
-      vape_flag = 0;
-      good_night();    // вызвать функцию сна
-    }
-    vape_btt = 1;
+    //---------отработка нажатия кнопки парения-----------
   }
-
-  if (!vape_state && vape_btt) {  // если кнопка ПАРИТЬ отпущена
-    if (millis() - vape_press > 180) {
-      vape_release_count = 0;
-      vape_mode = 0;
-      vape_flag = 0;
-    }
-    vape_btt = 0;
-    if (vape_mode == 1) {
-      vape_release_count = 1;
-      vape_press = millis();
-    }
-    if (vape_mode == 2) vape_release_count = 2;
-
-    digitalWrite(mosfet, 0);
-    disp.clear();
-    mode_flag = 0;
-
-    // если есть изменения в настройках, записать в память
-    if (change_v_flag) {
-      EEPROM.writeInt(0, volts);
-      change_v_flag = 0;
-    }
-    if (change_w_flag) {
-      EEPROM.writeInt(2, watts);
-      change_w_flag = 0;
-    }
-    if (change_o_flag) {
-      EEPROM.writeFloat(4, ohms);
-      change_o_flag = 0;
-    }
-    // если есть изменения в настройках, записать в память
-  }
-  if (vape_state && !flag) { // если акум сел, а мы хотим подымить
-    disp.clear();
-    disp_send(LOWB);
-    delay(1000);
-    vape_flag = 1;
-  }
-  //---------отработка нажатия кнопки парения-----------
 
   if (wake_up_flag) wake_puzzle();                   // вызвать функцию 5 нажатий для пробудки
 
@@ -491,7 +487,7 @@ void wake_puzzle() {
 void good_night() {
   disp_send(BYE);      // попрощаться
   delay(500);
-  disp.clear();  
+  disp.clear();
   digitalWrite(mosfet, LOW); // принудительно отключить койл
   delay(50);
 
