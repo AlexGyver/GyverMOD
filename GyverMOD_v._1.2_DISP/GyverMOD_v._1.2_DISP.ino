@@ -436,6 +436,7 @@ void wake_up() {
   vape_release_count = 0;
   vape_mode = 0;
   vape_flag = 0;
+  mode_flag = 1;
 }
 //------функция, вызываемая при выходе из сна (прерывание)------
 
