@@ -2,7 +2,7 @@
 
 ## Папки
 
-**TM74HC595-disp-upd** - библиотека для дисплея, установить в C:\Program Files\Arduino\libraries
+**GyverMOD_libs** - папка с файлами библиотек, установить в C:\Program Files\Arduino\libraries
   
 **GyverMOD_v._1.0_DISP** - прошивка для Ардуино, версия с варивольтом
 
@@ -17,14 +17,25 @@
 ### Компоновка, версия 1.0
 ![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/images/comp1.jpg)
 
+### Схема подключения, версия 1.2
+![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/scheme_1.2.jpg)
+
+### Компоновка, версия 1.0
+![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/images/comp1.jpg)
+
 ## Нужная инфа
 ### Страница проекта на моём сайте
 http://AlexGyver.ru/gyvermod/
 
 ### Настройки в прошивке (1 - вкл, 0 - выкл): 
-* initial_calibration - калибровка вольтметра
-* welcome - приветствие (слова GYVER VAPE при включении)
-* battery_info - отображение напряжения аккумулятора при запуске
+* initial_calibration - калибровка вольтметра 1 - включить, 0 - выключить
+* welcome - приветствие (слова GYVER VAPE при включении), 1 - включить, 0 - выключить
+* battery_info - отображение напряжения аккумулятора при запуске, 1 - включить, 0 - выключить
+* sleep_timer - таймер сна в секундах
+* vape_threshold - отсечка затяжки, в секундах
+* turbo_mode - турбо режим 1 - включить, 0 - выключить
+* battery_percent - отображать заряд в процентах, 1 - включить, 0 - выключить
+* battery_low - нижний порог срабатывания защиты от переразрядки аккумулятора, в Вольтах!
 
 ###Статья первые шаги с Arduino
 ► http://alexgyver.ru/arduino-first/
@@ -53,10 +64,13 @@ http://AlexGyver.ru/gyvermod/
 * 5 шт. http://ali.pub/m3y6r
 * 1 шт. https://www.chipdip.ru/product/smrs-102-1c2
 
-Мосфет
 Мосфет 
 5 шт. Мощный http://ali.pub/2alrv
-1 шт. https://www.chipdip.ru/product/irlb3034pbf
+1 шт. Мощный https://www.chipdip.ru/product/irlb3034pbf
+1 шт. для омметра https://www.chipdip.ru/product/irlb8743pbf
+
+Резистор для омметра
+https://www.chipdip.ru/product0/332102420
 
 Резисторы 10 кОм
 * Больошй набор http://ali.pub/odr8u
