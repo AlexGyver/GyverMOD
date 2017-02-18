@@ -20,8 +20,8 @@
 ### Схема подключения, версия 1.2
 ![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/scheme_1.2.jpg)
 
-### Компоновка, версия 1.0
-![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/images/comp1.jpg)
+### Компоновка, версия 1.2
+![GyverMOD 1.0](https://github.com/AlexGyver/GyverMOD/blob/master/images/comp3.jpg)
 
 ## Нужная инфа
 ### Страница проекта на моём сайте
