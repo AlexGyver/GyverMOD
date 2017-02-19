@@ -155,6 +155,7 @@ void setup() {
 
 void loop() {
   if (millis() - last_time > 50) {                       // 20 раз в секунду измеряем напряжение
+    last_time = millis();
     bat_vol = readVcc();                                 // измерить напряжение аккумулятора в миллиВольтах
     bat_volt_f = filter_k * bat_vol + (1 - filter_k) * bat_old;  // фильтруем
     bat_old = bat_volt_f;                                // фильтруем
