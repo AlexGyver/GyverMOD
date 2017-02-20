@@ -140,6 +140,7 @@ void setup() {
     flag = 0;
     disp.clear();
     disp_send(LOWB);
+    digitalWrite(mosfet, LOW);     // принудительно отключить койл
   } else {
     flag = 1;
   }
@@ -164,6 +165,7 @@ void loop() {
       flag = 0;                                          // прекратить работу
       disp.clear();
       disp_send(LOWB);
+      digitalWrite(mosfet, LOW);                         // принудительно отключить койл
     }
   }
 
@@ -228,14 +230,14 @@ void loop() {
         mode_flag = 0;
         disp_send(VVOL);
         delay(400);
-        disp.clear();        
+        disp.clear();
       }
       //---------кнопка ВВЕРХ--------
       if (up_state && !up_flag) {
         volts += 100;
         volts = min(volts, bat_volt_f);  // ограничение сверху на текущий заряд акума
         up_flag = 1;
-        disp.clear();        
+        disp.clear();
       }
       if (!up_state && up_flag) {
         up_flag = 0;
@@ -248,7 +250,7 @@ void loop() {
         volts -= 100;
         volts = max(volts, 0);
         down_flag = 1;
-        disp.clear();        
+        disp.clear();
       }
       if (!down_state && down_flag) {
         down_flag = 0;
@@ -266,7 +268,7 @@ void loop() {
         mode_flag = 0;
         disp_send(VAVA);
         delay(400);
-        disp.clear();        
+        disp.clear();
       }
       //---------кнопка ВВЕРХ--------
       if (up_state && !up_flag) {
@@ -274,7 +276,7 @@ void loop() {
         byte maxW = (sq((float)bat_volt_f / 1000)) / ohms;
         watts = min(watts, maxW);               // ограничение сверху на текущий заряд акума и сопротивление
         up_flag = 1;
-        disp.clear();        
+        disp.clear();
       }
       if (!up_state && up_flag) {
         up_flag = 0;
@@ -287,7 +289,7 @@ void loop() {
         watts -= 1;
         watts = max(watts, 0);
         down_flag = 1;
-        disp.clear();        
+        disp.clear();
       }
       if (!down_state && down_flag) {
         down_flag = 0;
@@ -304,14 +306,14 @@ void loop() {
         mode_flag = 0;
         disp_send(COIL);
         delay(400);
-        disp.clear();        
+        disp.clear();
       }
       //---------кнопка ВВЕРХ--------
       if (up_state && !up_flag) {
         ohms += 0.05;
         ohms = min(ohms, 3);
         up_flag = 1;
-        disp.clear();        
+        disp.clear();
       }
       if (!up_state && up_flag) {
         up_flag = 0;
@@ -324,7 +326,7 @@ void loop() {
         ohms -= 0.05;
         ohms = max(ohms, 0);
         down_flag = 1;
-        disp.clear();        
+        disp.clear();
       }
       if (!down_state && down_flag) {
         down_flag = 0;
@@ -341,11 +343,17 @@ void loop() {
       if (!vape_flag) {
         vape_flag = 1;
         vape_mode = 1;            // первичное нажатие
+        delay(20);                // анти дребезг (сделал по-тупому, лень)
         vape_press = millis();    // первичное нажатие
       }
 
-      if (vape_release_count == 1) vape_mode = 2;  // двойное нажатие
-      if (vape_release_count == 2) vape_mode = 3;  // тройное нажатие
+      if (vape_release_count == 1) {
+        vape_mode = 2;               // двойное нажатие
+        delay(20);                   // анти дребезг (сделал по-тупому, лень)
+      }
+      if (vape_release_count == 2) {
+        vape_mode = 3;               // тройное нажатие
+      }
 
       if (millis() - vape_press > vape_threshold * 1000) {  // "таймер затяжки"
         vape_mode = 0;
