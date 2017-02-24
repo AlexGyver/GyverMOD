@@ -67,12 +67,12 @@ http://AlexGyver.ru/gyvermod/
 * 1 шт. https://www.chipdip.ru/product/smrs-102-1c2
 
 Мосфет 
-5 шт. Мощный http://ali.pub/2alrv
-1 шт. Мощный https://www.chipdip.ru/product/irlb3034pbf
-1 шт. для омметра https://www.chipdip.ru/product/irlb8743pbf
+* 5 шт. Мощный http://ali.pub/2alrv
+* 1 шт. Мощный https://www.chipdip.ru/product/irlb3034pbf
+* 1 шт. для омметра https://www.chipdip.ru/product/irlb8743pbf
 
 Резистор для омметра
-https://www.chipdip.ru/product0/332102420
+* https://www.chipdip.ru/product0/332102420
 
 Резисторы 10 кОм
 * Больошй набор http://ali.pub/odr8u
