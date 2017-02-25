@@ -55,7 +55,7 @@ http://AlexGyver.ru/gyvermod/
 * Холдер х2 http://ali.pub/wrlsu
 * Повыш. модуль http://ali.pub/klcgw
 * Зарядник http://ali.pub/rgfop
-* Провод толстый http://ali.pub/oy671
+* Провод толстый http://ali.pub/4ptca
 * Акумы SONY VTС4 http://ali.pub/b64sy
 * Другие акумы http://alexgyver.ru/vapes/
 * 510 коннектор http://ali.pub/03sfx
