@@ -117,7 +117,8 @@ void setup() {
   pinMode(mosfet , OUTPUT);
   pinMode(disp_vcc , OUTPUT);
   digitalWrite(disp_vcc, HIGH);
-  digitalWrite(mosfet, LOW); // принудительно отключить койл
+  Timer1.disablePwm(mosfet);    // принудительно отключить койл
+  digitalWrite(mosfet, LOW);    // принудительно отключить койл
   //---настройка кнопок и выходов-----
 
   //------приветствие-----
@@ -140,7 +141,8 @@ void setup() {
     flag = 0;
     disp.clear();
     disp_send(LOWB);
-    digitalWrite(mosfet, LOW);     // принудительно отключить койл
+    Timer1.disablePwm(mosfet);    // принудительно отключить койл
+    digitalWrite(mosfet, LOW);    // принудительно отключить койл
   } else {
     flag = 1;
   }
@@ -165,7 +167,8 @@ void loop() {
       flag = 0;                                          // прекратить работу
       disp.clear();
       disp_send(LOWB);
-      digitalWrite(mosfet, LOW);                         // принудительно отключить койл
+      Timer1.disablePwm(mosfet);    // принудительно отключить койл
+      digitalWrite(mosfet, LOW);    // принудительно отключить койл
     }
   }
 
@@ -436,7 +439,8 @@ void loop() {
 //------функция, вызываемая при выходе из сна (прерывание)------
 void wake_up() {
   digitalWrite(disp_vcc, HIGH);  // включить дисплей
-  digitalWrite(mosfet, LOW);     // принудительно отключить койл
+  Timer1.disablePwm(mosfet);    // принудительно отключить койл
+  digitalWrite(mosfet, LOW);    // принудительно отключить койл
   wake_timer = millis();         // запомнить время пробуждения
   wake_up_flag = 1;
   vape_release_count = 0;
@@ -498,7 +502,8 @@ void good_night() {
   disp_send(BYE);      // попрощаться
   delay(500);
   disp.clear();
-  digitalWrite(mosfet, LOW); // принудительно отключить койл
+  Timer1.disablePwm(mosfet);    // принудительно отключить койл
+  digitalWrite(mosfet, LOW);    // принудительно отключить койл
   delay(50);
 
   // подать 0 на все пины питания дисплея
