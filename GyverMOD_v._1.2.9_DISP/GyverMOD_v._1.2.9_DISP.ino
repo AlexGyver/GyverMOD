@@ -36,10 +36,10 @@
 
 //-----------флажки-----------
 boolean up_state, down_state, set_state, vape_state;
-boolean up_flag, down_flag, set_flag, vape_flag, set_flag_hold, set_hold, vape_btt, vape_btt_f;
-volatile boolean wake_up_flag;
+boolean up_flag, down_flag, set_flag, set_flag_hold, set_hold, vape_btt, vape_btt_f;
+volatile boolean wake_up_flag, vape_flag;
 boolean change_v_flag, change_w_flag, change_o_flag;
-byte mode, mode_flag = 1;
+volatile byte mode, mode_flag = 1;
 boolean flag;          // флаг, разрешающий подать ток на койл (защита от КЗ, обрыва, разрядки)
 //-----------флажки-----------
 
@@ -72,7 +72,7 @@ unsigned long last_time, vape_press, set_press, last_vape, wake_timer; // тай
 int volts, watts;    // храним вольты и ватты
 float ohms;          // храним омы
 float my_vcc_const;  // константа вольтметра
-byte vape_mode, vape_release_count;
+volatile byte vape_mode, vape_release_count;
 
 //---------------надписи---------------
 byte VVOL[4] = {41, 36, 32, 30};
