@@ -53,7 +53,7 @@ http://AlexGyver.ru/gyvermod/
 * Дисплей http://ali.pub/6wbzj
 * Ардуино Нано http://ali.pub/j570s
 * Холдер х2 http://ali.pub/wrlsu
-* Повыш. модуль http://ali.pub/klcgw
+* Повыш. модуль http://ali.pub/1ingxt
 * Зарядник http://ali.pub/rgfop
 * Провод толстый http://ali.pub/4ptca
 * Акумы SONY VTС4 http://ali.pub/b64sy
