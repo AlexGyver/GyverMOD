@@ -47,46 +47,46 @@ http://AlexGyver.ru/gyvermod/
 - Страница с вейпами http://alexgyver.ru/vapes/
 - Ардуино и электроника http://alexgyver.ru/arduino_shop/
 
-* Корпус http://ali.ski/V_5Ls http://ali.ski/euvEt
-* Макетка https://ali.ski/p_atD
-* Дисплей https://ali.ski/JnjGYE
+* Корпус https://ali.ski/d9zYwX https://ali.ski/KGMWOB
+* Макетка https://ali.ski/MooYRL
+* Дисплей https://ali.ski/GFfuDU
 * Кнопки длинные
-* 50 шт. https://ali.ski/8szWv0
+* 50 шт. https://ali.ski/IcDhq0
 * 1 шт. https://www.chipdip.ru/product/tyco-2-1825910-7-fsm14jh
 * Кнопка большая
-* 20 шт. https://ali.ski/I5IyI
+* 20 шт. https://ali.ski/wmg-Y
 * 1 шт. https://www.chipdip.ru/product/tyco-1437565-5-fsm103
 * колпачок https://www.chipdip.ru/product/swt-9r-r
-* Стильная кнопка https://ali.ski/4G9Po
+* Стильная кнопка https://ali.ski/bplVow
 * https://www.chipdip.ru/product/pbs26c
 * Arduino NANO 328p – искать
-* https://ali.ski/tI7blh
-* https://ali.ski/O4yTxb
-* https://ali.ski/6_rFIS
-* https://ali.ski/gb92E-
+* https://ali.ski/WtHJkn
+* https://ali.ski/ExsaD
+* https://ali.ski/t027q
+* https://ali.ski/iFoCj
 * Giant4 (Россия)
-* Холдер х2 https://ali.ski/LXzk4N
-* Повыш. модуль https://ali.ski/m07y1U
-* Зарядник https://ali.ski/pspbG
+* Холдер х2 https://ali.ski/DNvLlV
+* Повыш. модуль https://ali.ski/mZquA7
+* Зарядник https://ali.ski/8bsyr
 * Выключатель
-* 5 шт. https://ali.ski/Vdjvjt
+* 5 шт. https://ali.ski/miaT7r
 * 1 шт. https://www.chipdip.ru/product/smrs-102-1c2
 * Мосфеты
-* 5 шт. Мощный https://ali.ski/ZmOqli
+* 5 шт. Мощный https://ali.ski/1z4Td
 * 1 шт. Мощный https://www.chipdip.ru/product/irlb3034pbf
 * 1 шт. для омметра https://www.chipdip.ru/product/irlb8743pbf
 * Резистор для омметра https://www.chipdip.ru/product0/510940674
 * Резисторы 10 кОм
-* Большой набор https://ali.ski/rhxxA
+* Большой набор https://ali.ski/NAkzQ
 * 1 шт. https://www.chipdip.ru/product0/41486
 * Резисторы 100 Ом
-* Большой набор https://ali.ski/rhxxA
+* Большой набор https://ali.ski/NAkzQ
 * 1 шт. https://www.chipdip.ru/product0/47324
-* Провод толстый https://ali.ski/t0Se0n
-* Акумы SONY VTС4 https://ali.ski/ha0rU
+* Провод толстый https://ali.ski/fmndX
+* Акумы SONY VTС4 https://ali.ski/rLbZi
 * Другие акумы https://alexgyver.ru/vapes/
-* 510 коннектор https://ali.ski/dxFwKE
-* Атомайзер https://ali.ski/wS7Uo
+* 510 коннектор https://ali.ski/u6grk
+* Атомайзер https://ali.ski/gfHUV
 * Другие атомайзеры https://alexgyver.ru/vapes/
 * Кнопки, электроника, корпуса https://alexgyver.ru/electronics/
 * Припой, паяльники https://alexgyver.ru/all-for-soldering/
